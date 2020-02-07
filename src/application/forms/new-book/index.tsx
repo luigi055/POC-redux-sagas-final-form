@@ -1,16 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Form, Field } from "react-final-form";
-import { Format } from "../../../models/book/types";
+import { Format } from "../../../models/book/book.types";
 import Props from "./props";
 import Book from "../../../models/book";
 import validation from "./validation";
 import FormInput from "../fields/form-input";
 import FormSelect from "../fields/form-select";
 import FormTextArea from "../fields/form-textarea";
+import { addBook } from "../../../features/books/actions";
+import IBook from "../../../models/book/interface";
+import { State } from "../../store/store.types";
+import { selectBookCollection } from "../../../features/books/selectors";
 
-const newBook = ({ onSubmit }: Props) => (
+const newBook = ({ addBook }: Props) => (
   <Form
-    onSubmit={onSubmit}
+    onSubmit={(book: IBook) => {
+      addBook(book);
+    }}
     initialValues={new Book()}
     validate={validation}
     render={({ handleSubmit, form, submitting, pristine, values }) => (
@@ -89,4 +96,8 @@ const newBook = ({ onSubmit }: Props) => (
   />
 );
 
-export default newBook;
+const mapStateToProps = (state: State) => ({
+  books: selectBookCollection(state)
+});
+
+export default connect(mapStateToProps, { addBook })(newBook);

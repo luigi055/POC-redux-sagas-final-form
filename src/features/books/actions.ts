@@ -1,4 +1,4 @@
-import { ID } from "./../../models/book/types";
+import { ID } from "../../models/book/book.types";
 import { ADD_BOOK, REMOVE_BOOK } from "./types";
 import IBook from "../../models/book/interface";
 

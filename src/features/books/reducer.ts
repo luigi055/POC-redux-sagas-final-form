@@ -1,6 +1,6 @@
-import { ID } from "./../../models/book/types";
+import { ID } from "../../models/book/book.types";
 import { ADD_BOOK, REMOVE_BOOK } from "./types";
-import { Action, BooksState } from "../store/types";
+import { Action, BooksState } from "../../application/store/store.types";
 
 const INITIAL_STATE: BooksState = { collection: [], error: { message: "" } };
 

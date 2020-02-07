@@ -1,5 +1,5 @@
 import uuid from "uuid-random";
-import { Format } from "./types";
+import { Format } from "./book.types";
 import IBook from "./interface";
 
 export default class Book implements IBook {

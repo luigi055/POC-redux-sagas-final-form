@@ -1,4 +1,4 @@
-import * as types from "./types";
+import * as types from "./book.types";
 
 export default interface Book {
   id: types.ID;

@@ -1,5 +1,5 @@
-import IBook from "../../../models/book/interface";
+import { addBookDefinition } from "./../../../features/books/actions.types";
 
 export default interface Props {
-  onSubmit: (values: IBook) => void;
+  addBook: addBookDefinition;
 }
